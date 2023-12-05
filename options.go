@@ -35,3 +35,10 @@ func WithBlockquoteShades(shades []shadeFmt) Options {
 		r.blockQuoteShade = shade(shades)
 	}
 }
+
+// WithContinuity makes the renderer resume heading numbers where prev left off.
+func WithContinuity(prev renderer) Options {
+	return func(r *renderer) {
+		r.headingNumbering = prev.headingNumbering
+	}
+}
